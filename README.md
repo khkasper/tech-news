@@ -40,7 +40,7 @@ Ao iniciar este projeto, você concorda com as diretrizes do Código de Conduta 
   <summary><strong>🗓 Data de Entrega</strong></summary><br />
   
   * Este projeto é individual;
-  * Serão `2` dias de projeto;
+  * Serão `3` dias de projeto;
   * Data para entrega final do projeto: `01/07/2022 14:10`.
 
 </details>

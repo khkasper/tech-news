@@ -23,7 +23,6 @@ def search_by_title(title):
     title_results = []
     for news in news_list:
         title_results.append((news["title"], news["url"]))
-    print(news_list)
     return title_results
 
 
@@ -45,7 +44,11 @@ def search_by_date(date):
 
 # Requisito 8
 def search_by_tag(tag):
-    """Seu código deve vir aqui"""
+    news_list = search_news({"tags": {"$regex": tag, "$options": "-i"}})
+    tag_results = []
+    for news in news_list:
+        tag_results.append((news["title"], news["url"]))
+    return tag_results
 
 
 # Requisito 9

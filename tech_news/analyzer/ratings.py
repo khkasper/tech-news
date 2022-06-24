@@ -1,4 +1,4 @@
-from tech_news.database import db
+from tech_news.database import db, find_news
 from pymongo import ASCENDING, DESCENDING
 
 
@@ -17,7 +17,21 @@ def top_5_news():
 
 # Requisito 11
 def top_5_categories():
-    """Seu código deve vir aqui"""
+    news_list = find_news()
+    categories_list = list(news["category"] for news in news_list)
+    categories_count = {}
+    for category in categories_list:
+        if category in categories_count:
+            categories_count[category] += 1
+        else:
+            categories_count[category] = 1
+    sorted_categories = sorted(
+        categories_count.items(), key=lambda x: x[1], reverse=True
+    )
+    top_5 = []
+    for key, _ in sorted_categories:
+        top_5.append(key)
+    return top_5
 
 
 # https://stackoverflow.com/questions/8109122/how-to-sort-mongodb-with-pymongo
